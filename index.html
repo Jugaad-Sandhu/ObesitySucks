@@ -11,9 +11,6 @@
             --dark: #0f0f0f;
             --glass: rgba(255, 255, 255, 0.05);
             --text: #ffffff;
-            --obesity-red: #cc0000;
-            --dark-charcoal: #1a1a1a;
-            --bg-gray: #f4f4f4;
         }
 
         body { 
@@ -119,81 +116,7 @@
             text-transform: uppercase; transition: 0.3s;
         }
         .signout-btn:hover { background: var(--primary); border-color: var(--primary); }
-        body { font-family: 'Arial Black', sans-serif; margin: 0; background: var(--bg-gray); }
-
-        /* Top Navigation Bar */
-        .navbar {
-            background-color: var(--dark-charcoal);
-            display: flex;
-            justify-content: center;
-            border-bottom: 5px solid var(--obesity-red);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .tab-btn {
-            background: none;
-            border: none;
-            color: white;
-            padding: 20px 30px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .tab-btn:hover { background: #333; }
-        .tab-btn.active { 
-            background: var(--obesity-red); 
-            color: white; 
-        }
-
-        /* Content Sections */
-        .content-section { 
-            display: none; 
-            padding: 40px 20px; 
-            text-align: center; 
-        }
-        
-        /* Show active section */
-        .content-section.active { display: block; }
-
-        /* Calculator Styling */
-        .bmi-card {
-            background: white;
-            max-width: 400px;
-            margin: 0 auto;
-            padding: 30px;
-            border: 3px solid var(--obesity-red);
-            border-radius: 20px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-
-        h2 { color: var(--obesity-red); text-transform: uppercase; }
-
-        .input-box { margin: 20px 0; text-align: left; }
-        .input-box label { display: block; margin-bottom: 8px; color: #333; }
-        .input-box input { 
-            width: 100%; padding: 12px; border: 2px solid #ddd; 
-            border-radius: 8px; box-sizing: border-box; font-size: 18px;
-        }
-
-        .calc-trigger {
-            width: 100%; background: var(--obesity-red); color: white;
-            border: none; padding: 15px; border-radius: 8px;
-            font-size: 18px; font-weight: bold; cursor: pointer;
-        }
-
-        .calc-trigger:hover { background: #a00000; }
-
-        .result-display {
-            margin-top: 25px;
-            font-size: 24px;
-            color: var(--dark-charcoal);
-        }
-
-        #bmi-status { font-weight: 900; margin-top: 10px; }
+      
     </style>
 </head>
 <body>
@@ -305,38 +228,7 @@
             </div>
         </div>
     </div>
-     <div class="navbar">
-        <button class="tab-btn active" onclick="openTab(event, 'home')">HOME</button>
-        <button class="tab-btn" onclick="openTab(event, 'calculator')">BMI CALCULATOR</button>
-    </div>
-
-    <!-- Home Tab Content -->
-    <div id="home" class="content-section active">
-        <h1>OBESITY SUCKS</h1>
-        <p>It's time to take control of your health. Use our calculator to see where you stand.</p>
-    </div>
-
-    <!-- Calculator Tab Content (Hidden by default) -->
-    <div id="calculator" class="content-section">
-        <div class="bmi-card">
-            <h2>Check Your BMI</h2>
-            <div class="input-box">
-                <label>Weight (kg)</label>
-                <input type="number" id="w" placeholder="Enter weight">
-            </div>
-            <div class="input-box">
-                <label>Height (cm)</label>
-                <input type="number" id="h" placeholder="Enter height">
-            </div>
-            <button class="calc-trigger" onclick="runBmi()">CALCULATE NOW</button>
-            
-            <div class="result-display">
-                <div id="bmi-num">--</div>
-                <div id="bmi-status"></div>
-            </div>
-        </div>
-    </div>
-
+    
     <script>
         let savedUser = ""; let savedPass = ""; let isLoggedIn = false;
         const defaultImg = "https://flaticon.com";
@@ -388,41 +280,7 @@
         }
 
         function uploadImage(input) { if (input.files && input.files[0]) { let r = new FileReader(); r.onload = function(e) { document.getElementById('profile-pic').src = e.target.result; document.getElementById('nav-icon').src = e.target.result; }; r.readAsDataURL(input.files[0]); } }
-        // Logic for Switching Tabs
-        function openTab(evt, tabName) {
-            var i, content, tabs;
-            content = document.getElementsByClassName("content-section");
-            for (i = 0; i < content.length; i++) {
-                content[i].classList.remove("active");
-            }
-            tabs = document.getElementsByClassName("tab-btn");
-            for (i = 0; i < tabs.length; i++) {
-                tabs[i].classList.remove("active");
-            }
-            document.getElementById(tabName).classList.add("active");
-            evt.currentTarget.classList.add("active");
-        }
-
-        // Logic for BMI
-        function runBmi() {
-            let weight = document.getElementById('w').value;
-            let height = document.getElementById('h').value / 100;
-            if(weight > 0 && height > 0) {
-                let bmi = (weight / (height * height)).toFixed(1);
-                document.getElementById('bmi-num').innerText = "Your BMI: " + bmi;
-                
-                let status = "";
-                let color = "#cc0000";
-                if(bmi < 18.5) status = "UNDERWEIGHT";
-                else if(bmi < 25) { status = "HEALTHY"; color = "green"; }
-                else if(bmi < 30) status = "OVERWEIGHT";
-                else status = "OBESE";
-                
-                let sDiv = document.getElementById('bmi-status');
-                sDiv.innerText = status;
-                sDiv.style.color = color;
-            }
-        }
+        
     </script>
 </body>
 </html>
