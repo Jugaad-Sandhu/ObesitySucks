@@ -18,5 +18,13 @@
             <input type="range" min="0" max="100" value="100"
             oninput="a.volume = this.value / 100">
         </div>
+        <script>
+             const phases = ['Inhale','Hold','Exhale'], times = [3200,1600,3200];
+    let i = 0;
+    (function cycle()
+    { lbl.textContent = phases[i];
+      setTimeout(()=>{ i=(i+1)%3;
+      cycle(); }, times[i]); })();
+        </script>
     </body>
 </html>
