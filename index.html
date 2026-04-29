@@ -1,8 +1,12 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Obesity Is Bad</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #ff4b2b;
@@ -32,7 +36,7 @@
         }
         .bar-logo span { color: var(--primary); }
 
-        .nav-menu { display: flex; justify-content: center; gap: 30px; flex: 2; }
+        .nav-menu { display: flex; justify-content: center; gap: 30px; flex: 2; flex-wrap: wrap; }
         .nav-btn { 
             background: none; border: none; color: #aaa; font-weight: 600; 
             text-transform: uppercase; cursor: pointer; font-size: 0.85rem; 
@@ -168,6 +172,167 @@
             transition: 0.3s; margin-top: 10px;
         }
         .calc-btn:hover { transform: scale(1.02); box-shadow: 0 15px 30px rgba(255, 75, 43, 0.5); }
+
+        /* ── AWARDS / STARS PAGE ── */
+        .stars-banner {
+            max-width: 1000px; margin: 0 auto 30px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border-radius: 24px; padding: 30px 40px;
+            display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 20px 40px rgba(255,75,43,0.3);
+        }
+        .stars-banner-label { font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; opacity: 0.85; margin: 0; }
+        .stars-banner-value { font-size: 3.5rem; font-weight: 900; margin: 5px 0 0; }
+        .stars-banner-icon { font-size: 4rem; }
+
+        .codes-card {
+            max-width: 1000px; margin: 0 auto 30px;
+            background: var(--glass); padding: 40px;
+            border-radius: 24px; border: 1px solid rgba(255,255,255,0.1);
+        }
+        .codes-card h2 { color: var(--primary); margin-top: 0; text-transform: uppercase; letter-spacing: 1px; }
+        .code-row { display: flex; gap: 15px; margin-top: 20px; }
+        .code-row input { margin: 0; flex: 1; }
+        .code-row button {
+            padding: 0 30px; border: none; border-radius: 12px;
+            font-weight: 800; text-transform: uppercase; cursor: pointer;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: #fff; box-shadow: 0 10px 20px rgba(255, 75, 43, 0.3);
+            transition: 0.3s; white-space: nowrap;
+        }
+        .code-row button:hover { transform: scale(1.02); }
+        .code-msg { margin-top: 15px; font-weight: 600; min-height: 24px; }
+        .code-msg.success { color: #22c55e; }
+        .code-msg.error { color: #ef4444; }
+
+        .avatars-card {
+            max-width: 1000px; margin: 0 auto;
+            background: var(--glass); padding: 40px;
+            border-radius: 24px; border: 1px solid rgba(255,255,255,0.1);
+        }
+        .avatars-card h2 { color: var(--primary); margin-top: 0; text-transform: uppercase; letter-spacing: 1px; }
+        .avatars-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px; margin-top: 30px;
+        }
+        .avatar-item {
+            background: rgba(255,255,255,0.03); padding: 20px;
+            border-radius: 20px; text-align: center;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.3s;
+        }
+        .avatar-item:hover { background: rgba(255,255,255,0.08); transform: translateY(-5px); border-color: var(--primary); }
+        .avatar-item img {
+            width: 100%; aspect-ratio: 1; border-radius: 50%;
+            object-fit: cover; background: #1a1a1a;
+            border: 3px solid #333; transition: 0.3s;
+        }
+        .avatar-item.owned img { border-color: var(--primary); }
+        .avatar-item.equipped img { border-color: var(--primary); box-shadow: 0 0 20px rgba(255,75,43,0.6); }
+        .avatar-cost {
+            margin: 12px 0; font-weight: 700; color: #fff;
+        }
+        .avatar-cost .star { color: var(--primary); }
+        .avatar-btn {
+            width: 100%; padding: 10px; border: none; border-radius: 10px;
+            font-weight: 700; text-transform: uppercase; cursor: pointer;
+            font-size: 0.8rem; letter-spacing: 1px; transition: 0.3s;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: #fff;
+        }
+        .avatar-btn:hover { transform: scale(1.02); }
+        .avatar-btn.owned-btn { background: #333; cursor: pointer; }
+        .avatar-btn.equipped-btn { background: #22c55e; cursor: default; }
+        .avatar-btn.disabled-btn { background: #444; cursor: not-allowed; opacity: 0.6; }
+
+        /* ── GAMES PAGE ── */
+        .games-hub {
+            max-width: 1000px; margin: 0 auto;
+        }
+        .games-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px; margin-top: 40px;
+        }
+        .game-card {
+            background: var(--glass); padding: 40px 30px; border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1); text-align: center;
+            cursor: pointer; transition: 0.3s;
+        }
+        .game-card:hover { background: rgba(255,255,255,0.08); transform: translateY(-10px); border-color: var(--primary); }
+        .game-card h3 { color: var(--primary); margin-top: 10px; text-transform: uppercase; }
+        .game-card .game-icon { font-size: 3.5rem; }
+        .game-card p { color: #aaa; }
+
+        .game-stage {
+            max-width: 800px; margin: 0 auto;
+            background: var(--glass); border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.1); padding: 30px;
+            text-align: center;
+        }
+        .game-stage h2 { color: var(--primary); text-transform: uppercase; margin-top: 0; }
+        .game-back {
+            background: none; border: none; color: var(--primary);
+            cursor: pointer; font-weight: 700; text-transform: uppercase;
+            font-size: 0.85rem; letter-spacing: 1px; margin-bottom: 10px;
+        }
+        .game-stats { display: flex; justify-content: space-around; margin: 20px 0; }
+        .game-stat-label { color: #888; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+        .game-stat-value { color: var(--primary); font-size: 2rem; font-weight: 900; }
+
+        /* Catcher Game */
+        #catch-arena {
+            position: relative; height: 420px; background: #1a1a1a;
+            border-radius: 16px; overflow: hidden; margin-top: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .falling {
+            position: absolute; font-size: 2.5rem; cursor: pointer;
+            user-select: none; transition: transform 0.1s;
+        }
+        .falling:hover { transform: scale(1.2); }
+
+        /* Quiz Game */
+        .quiz-question {
+            font-size: 1.5rem; margin: 30px 0 20px; font-weight: 700;
+        }
+        .quiz-food {
+            font-size: 4rem; margin: 20px 0;
+        }
+        .quiz-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
+        .quiz-btn {
+            padding: 20px; border: none; border-radius: 12px;
+            font-weight: 800; text-transform: uppercase; cursor: pointer;
+            font-size: 1rem; letter-spacing: 1px; transition: 0.3s;
+            background: #252525; color: #fff; border: 1px solid #444;
+        }
+        .quiz-btn:hover { background: var(--primary); border-color: var(--primary); }
+
+        /* Reaction Game */
+        .reaction-target {
+            display: inline-block; width: 100px; height: 100px;
+            border-radius: 50%; cursor: pointer; user-select: none;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            line-height: 100px; font-size: 2rem; transition: 0.1s;
+            box-shadow: 0 10px 30px rgba(255,75,43,0.4);
+        }
+        .reaction-target:hover { transform: scale(1.05); }
+
+        .game-result {
+            margin-top: 30px; padding: 30px; border-radius: 20px;
+            border: 2px solid var(--primary); background: rgba(255,75,43,0.08);
+        }
+        .game-result h3 { color: var(--primary); margin-top: 0; }
+        .game-result .reward { font-size: 2.5rem; font-weight: 900; color: #fff; }
+        .game-result .reward span { color: var(--primary); }
+
+        .play-btn {
+            padding: 15px 40px; border: none; border-radius: 12px;
+            font-weight: 800; text-transform: uppercase; cursor: pointer;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: #fff; box-shadow: 0 10px 20px rgba(255, 75, 43, 0.3);
+            transition: 0.3s; letter-spacing: 1px; margin-top: 20px;
+        }
+        .play-btn:hover { transform: scale(1.02); box-shadow: 0 15px 30px rgba(255, 75, 43, 0.5); }
     </style>
 </head>
 <body>
@@ -181,6 +346,8 @@
             <button class="nav-btn" id="btn-help" onclick="showPage('help')">Help Us</button>
             <button class="nav-btn" id="btn-aware" onclick="showPage('aware')">Be Aware</button>
             <button class="nav-btn" id="btn-bmi" onclick="showPage('bmi')">BMI Calculator</button>
+            <button class="nav-btn" id="btn-awards" onclick="showPage('awards')">Awards</button>
+            <button class="nav-btn" id="btn-games" onclick="showPage('games')">Games</button>
         </div>
 
         <div class="icon-container">
@@ -296,6 +463,102 @@
         </div>
     </div>
 
+    <!-- ── AWARDS PAGE ── -->
+    <div id="awards" class="page">
+        <div class="stars-banner">
+            <div>
+                <p class="stars-banner-label">Your Stars</p>
+                <p class="stars-banner-value" id="stars-count">0</p>
+            </div>
+            <div class="stars-banner-icon">⭐</div>
+        </div>
+
+        <div class="codes-card">
+            <h2>Enter A Code</h2>
+            <p style="color:#aaa; margin: 0;">Type a code and earn stars. Try one — there are some hidden around.</p>
+            <div class="code-row">
+                <input type="text" id="code-input" placeholder="Enter code (e.g. HEALTHY)" onkeydown="if(event.key==='Enter') redeemCode()">
+                <button onclick="redeemCode()">Redeem</button>
+            </div>
+            <p class="code-msg" id="code-msg"></p>
+            <p style="color:#666; font-size:0.85rem; margin-top: 20px;">Hint: codes give different amounts. Sign in to get 500 stars to start!</p>
+        </div>
+
+        <div class="avatars-card">
+            <h2>Avatar Shop</h2>
+            <p style="color:#aaa; margin: 0;">Buy an avatar with stars. The one you equip becomes your sign-in picture.</p>
+            <div class="avatars-grid" id="avatars-grid"></div>
+        </div>
+    </div>
+
+    <!-- ── GAMES PAGE ── -->
+    <div id="games" class="page">
+        <div class="games-hub" id="games-hub">
+            <div class="content-card" style="text-align: center;">
+                <h1 style="font-size: 3rem; margin: 0;">PLAY <span style="color: var(--primary);">GAMES</span></h1>
+                <p style="color: #aaa;">Play games about obesity. The score you earn = the stars you get!</p>
+                <div class="games-grid">
+                    <div class="game-card" onclick="openGame('catch')">
+                        <div class="game-icon">🥗</div>
+                        <h3>Healthy Catcher</h3>
+                        <p>Catch healthy foods. Avoid the junk. 30 seconds.</p>
+                    </div>
+                    <div class="game-card" onclick="openGame('quiz')">
+                        <div class="game-icon">🧠</div>
+                        <h3>Calorie Quiz</h3>
+                        <p>Guess if a food is healthy or junk. 10 rounds.</p>
+                    </div>
+                    <div class="game-card" onclick="openGame('reaction')">
+                        <div class="game-icon">⚡</div>
+                        <h3>Workout Reaction</h3>
+                        <p>Tap as fast as you can. 20 seconds.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Catcher Game -->
+        <div id="game-catch" class="game-stage" style="display:none;">
+            <button class="game-back" onclick="closeGame()">← Back</button>
+            <h2>🥗 Healthy Catcher</h2>
+            <div class="game-stats">
+                <div><div class="game-stat-label">Score</div><div class="game-stat-value" id="catch-score">0</div></div>
+                <div><div class="game-stat-label">Time</div><div class="game-stat-value" id="catch-time">30</div></div>
+            </div>
+            <div id="catch-arena"></div>
+            <button class="play-btn" id="catch-start" onclick="startCatch()">Start Game</button>
+            <div id="catch-result"></div>
+        </div>
+
+        <!-- Quiz Game -->
+        <div id="game-quiz" class="game-stage" style="display:none;">
+            <button class="game-back" onclick="closeGame()">← Back</button>
+            <h2>🧠 Calorie Quiz</h2>
+            <div class="game-stats">
+                <div><div class="game-stat-label">Score</div><div class="game-stat-value" id="quiz-score">0</div></div>
+                <div><div class="game-stat-label">Round</div><div class="game-stat-value" id="quiz-round">0/10</div></div>
+            </div>
+            <div id="quiz-area">
+                <button class="play-btn" onclick="startQuiz()">Start Game</button>
+            </div>
+            <div id="quiz-result"></div>
+        </div>
+
+        <!-- Reaction Game -->
+        <div id="game-reaction" class="game-stage" style="display:none;">
+            <button class="game-back" onclick="closeGame()">← Back</button>
+            <h2>⚡ Workout Reaction</h2>
+            <div class="game-stats">
+                <div><div class="game-stat-label">Score</div><div class="game-stat-value" id="reaction-score">0</div></div>
+                <div><div class="game-stat-label">Time</div><div class="game-stat-value" id="reaction-time">20</div></div>
+            </div>
+            <div id="reaction-area" style="margin: 40px 0; min-height: 150px;">
+                <button class="play-btn" onclick="startReaction()">Start Game</button>
+            </div>
+            <div id="reaction-result"></div>
+        </div>
+    </div>
+
     <div id="auth-choice" class="page">
         <div class="form-container">
             <button style="background:none; border:none; color:var(--primary); cursor:pointer; position:absolute; top:20px; left:20px;" onclick="showPage('home')">← Back</button>
@@ -337,6 +600,7 @@
             <div style="font-size: 1.5rem; letter-spacing: 1px;">
                 <p>User: <span id="display-user" style="color:var(--primary)"></span></p>
                 <p>Pass: <span id="display-pass" style="color:var(--primary)"></span></p>
+                <p style="font-size: 1.1rem; color:#aaa;">Stars: <span id="profile-stars" style="color:var(--primary); font-weight: 900;">0</span> ⭐</p>
                 <button class="signout-btn" onclick="signOut()">Sign Out</button>
             </div>
         </div>
@@ -344,8 +608,35 @@
     
     <script>
         let savedUser = ""; let savedPass = ""; let isLoggedIn = false;
-        const defaultImg = "https://flaticon.com";
+        const defaultImg = "https://www.shutterstock.com/image-vector/user-profile-icon-social-media-260nw-2452460729.jpg";
         let currentUnit = 'metric';
+        let stars = 0;
+        let signInBonusGiven = false;
+
+        // ── AVATAR SHOP DATA ──
+        const AVATARS = [
+            { id: 'a1', name: 'Runner',   cost: 100, img: 'https://api.dicebear.com/7.x/adventurer/svg?seed=Runner&backgroundColor=ff4b2b' },
+            { id: 'a2', name: 'Athlete',  cost: 200, img: 'https://api.dicebear.com/7.x/adventurer/svg?seed=Athlete&backgroundColor=ff416c' },
+            { id: 'a3', name: 'Lifter',   cost: 300, img: 'https://api.dicebear.com/7.x/adventurer/svg?seed=Lifter&backgroundColor=222' },
+            { id: 'a4', name: 'Yogi',     cost: 400, img: 'https://api.dicebear.com/7.x/adventurer/svg?seed=Yogi&backgroundColor=ff4b2b' },
+            { id: 'a5', name: 'Boxer',    cost: 500, img: 'https://api.dicebear.com/7.x/adventurer/svg?seed=Boxer&backgroundColor=ff416c' },
+            { id: 'a6', name: 'Champion', cost: 800, img: 'https://api.dicebear.com/7.x/adventurer/svg?seed=Champion&backgroundColor=222' },
+            { id: 'a7', name: 'Legend',   cost: 1200, img: 'https://api.dicebear.com/7.x/adventurer/svg?seed=Legend&backgroundColor=ff4b2b' },
+            { id: 'a8', name: 'Hero',     cost: 2000, img: 'https://api.dicebear.com/7.x/adventurer/svg?seed=Hero&backgroundColor=ff416c' }
+        ];
+        let owned = [];
+        let equipped = null;
+
+        // ── REDEEMABLE CODES ──
+        const CODES = {
+            'HEALTHY':    { stars: 100, used: false },
+            'WORKOUT':    { stars: 150, used: false },
+            'FITNESS':    { stars: 250, used: false },
+            'NUTRITION':  { stars: 200, used: false },
+            'OBESITYBAD': { stars: 500, used: false },
+            'STAYACTIVE': { stars: 350, used: false },
+            'EATSMART':   { stars: 175, used: false }
+        };
 
         function showPage(p) { 
             document.querySelectorAll('.page').forEach(x => x.classList.remove('active')); 
@@ -353,11 +644,14 @@
             document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active-tab'));
             if(document.getElementById('btn-' + p)) document.getElementById('btn-' + p).classList.add('active-tab');
             window.scrollTo(0,0); 
+            if (p === 'awards') { renderAvatars(); updateStarsDisplay(); }
+            if (p === 'games') { closeGame(); }
         }
 
         function handleIconClick() { if (isLoggedIn) { 
             document.getElementById('display-user').innerText = savedUser; 
             document.getElementById('display-pass').innerText = savedPass; 
+            document.getElementById('profile-stars').innerText = stars;
             showPage('profile-page'); 
         } else { showPage('auth-choice'); } }
 
@@ -372,14 +666,22 @@
         function createAccount() {
             savedUser = document.getElementById('reg-user').value;
             savedPass = document.getElementById('reg-pass').value;
-            if(savedUser && savedPass) { isLoggedIn = true; showPage('home'); }
+            if(savedUser && savedPass) {
+                isLoggedIn = true;
+                if (!signInBonusGiven) { stars += 500; signInBonusGiven = true; }
+                updateStarsDisplay();
+                showPage('home');
+            }
         }
 
         function login() {
             const u = document.getElementById('log-user');
             const p = document.getElementById('log-pass');
             if (u.value === savedUser && p.value === savedPass && savedUser !== "") {
-                isLoggedIn = true; showPage('home');
+                isLoggedIn = true;
+                if (!signInBonusGiven) { stars += 500; signInBonusGiven = true; }
+                updateStarsDisplay();
+                showPage('home');
             } else {
                 if(u.value !== savedUser) { u.value = ""; u.placeholder = "Incorrect Username"; }
                 if(p.value !== savedPass) { p.value = ""; p.placeholder = "Incorrect Password"; }
@@ -447,6 +749,265 @@
             document.getElementById('bmi-category').style.color = color;
             document.getElementById('bmi-desc').innerText = desc;
             document.getElementById('bmi-result').style.display = 'block';
+        }
+
+        // ── STARS / AWARDS LOGIC ──
+        function updateStarsDisplay() {
+            document.getElementById('stars-count').innerText = stars;
+            const ps = document.getElementById('profile-stars');
+            if (ps) ps.innerText = stars;
+        }
+
+        function redeemCode() {
+            const input = document.getElementById('code-input');
+            const msg = document.getElementById('code-msg');
+            const code = input.value.trim().toUpperCase();
+            if (!code) { msg.innerText = 'Type a code first.'; msg.className = 'code-msg error'; return; }
+            const entry = CODES[code];
+            if (!entry) { msg.innerText = 'That code is not real. Try another one!'; msg.className = 'code-msg error'; return; }
+            if (entry.used) { msg.innerText = 'You already used that code.'; msg.className = 'code-msg error'; return; }
+            entry.used = true;
+            stars += entry.stars;
+            updateStarsDisplay();
+            msg.innerText = 'Correct! You earned ' + entry.stars + ' stars ⭐';
+            msg.className = 'code-msg success';
+            input.value = '';
+            renderAvatars();
+        }
+
+        function renderAvatars() {
+            const grid = document.getElementById('avatars-grid');
+            grid.innerHTML = '';
+            AVATARS.forEach(av => {
+                const isOwned = owned.includes(av.id);
+                const isEquipped = equipped === av.id;
+                const item = document.createElement('div');
+                item.className = 'avatar-item' + (isOwned ? ' owned' : '') + (isEquipped ? ' equipped' : '');
+                let btnLabel, btnClass;
+                if (isEquipped) { btnLabel = 'Equipped'; btnClass = 'equipped-btn'; }
+                else if (isOwned) { btnLabel = 'Equip'; btnClass = 'owned-btn'; }
+                else if (stars < av.cost) { btnLabel = 'Need ' + (av.cost - stars) + ' more'; btnClass = 'disabled-btn'; }
+                else { btnLabel = 'Buy'; btnClass = ''; }
+                item.innerHTML =
+                    '<img src="' + av.img + '" alt="' + av.name + '">' +
+                    '<div style="font-weight:700; margin-top:10px;">' + av.name + '</div>' +
+                    '<div class="avatar-cost"><span class="star">⭐</span> ' + av.cost + '</div>' +
+                    '<button class="avatar-btn ' + btnClass + '" onclick="avatarAction(\'' + av.id + '\')">' + btnLabel + '</button>';
+                grid.appendChild(item);
+            });
+        }
+
+        function avatarAction(id) {
+            const av = AVATARS.find(a => a.id === id);
+            if (!av) return;
+            if (equipped === id) return;
+            if (owned.includes(id)) {
+                equipped = id;
+                document.getElementById('profile-pic').src = av.img;
+                document.getElementById('nav-icon').src = av.img;
+                renderAvatars();
+                return;
+            }
+            if (stars < av.cost) return;
+            stars -= av.cost;
+            owned.push(id);
+            equipped = id;
+            document.getElementById('profile-pic').src = av.img;
+            document.getElementById('nav-icon').src = av.img;
+            updateStarsDisplay();
+            renderAvatars();
+        }
+
+        // ── GAMES LOGIC ──
+        function openGame(game) {
+            document.getElementById('games-hub').style.display = 'none';
+            document.getElementById('game-catch').style.display = (game === 'catch') ? 'block' : 'none';
+            document.getElementById('game-quiz').style.display = (game === 'quiz') ? 'block' : 'none';
+            document.getElementById('game-reaction').style.display = (game === 'reaction') ? 'block' : 'none';
+            // reset displays
+            document.getElementById('catch-result').innerHTML = '';
+            document.getElementById('quiz-result').innerHTML = '';
+            document.getElementById('reaction-result').innerHTML = '';
+        }
+
+        function closeGame() {
+            document.getElementById('games-hub').style.display = 'block';
+            document.getElementById('game-catch').style.display = 'none';
+            document.getElementById('game-quiz').style.display = 'none';
+            document.getElementById('game-reaction').style.display = 'none';
+            stopCatch();
+            stopReaction();
+        }
+
+        function awardStars(score, gameName) {
+            stars += score;
+            updateStarsDisplay();
+            return '<div class="game-result"><h3>' + gameName + ' complete!</h3>' +
+                   '<p style="color:#aaa;">Your score</p>' +
+                   '<div class="reward">' + score + ' <span>⭐</span></div>' +
+                   '<p style="color:#aaa; margin-top:10px;">Added to your stars. Spend them on awards!</p></div>';
+        }
+
+        // ── CATCHER GAME ──
+        let catchScore = 0, catchTime = 30, catchInterval = null, catchSpawn = null;
+        const HEALTHY = ['🥗','🍎','🥦','🥕','🍓','🥒','🍇','🍊'];
+        const JUNK = ['🍔','🍟','🍕','🍩','🍰','🌭','🍫','🥤'];
+
+        function startCatch() {
+            catchScore = 0; catchTime = 30;
+            document.getElementById('catch-score').innerText = catchScore;
+            document.getElementById('catch-time').innerText = catchTime;
+            document.getElementById('catch-result').innerHTML = '';
+            document.getElementById('catch-start').style.display = 'none';
+            const arena = document.getElementById('catch-arena');
+            arena.innerHTML = '';
+            catchInterval = setInterval(() => {
+                catchTime--;
+                document.getElementById('catch-time').innerText = catchTime;
+                if (catchTime <= 0) endCatch();
+            }, 1000);
+            catchSpawn = setInterval(spawnFalling, 700);
+        }
+
+        function spawnFalling() {
+            const arena = document.getElementById('catch-arena');
+            if (!arena) return;
+            const isHealthy = Math.random() < 0.6;
+            const list = isHealthy ? HEALTHY : JUNK;
+            const food = list[Math.floor(Math.random() * list.length)];
+            const el = document.createElement('div');
+            el.className = 'falling';
+            el.innerText = food;
+            el.style.left = (Math.random() * 90) + '%';
+            el.style.top = '-50px';
+            el.dataset.healthy = isHealthy ? '1' : '0';
+            arena.appendChild(el);
+            const speed = 3 + Math.random() * 2;
+            let pos = -50;
+            const fall = setInterval(() => {
+                pos += speed;
+                el.style.top = pos + 'px';
+                if (pos > 420) { clearInterval(fall); if (el.parentNode) el.remove(); }
+            }, 30);
+            el.onclick = () => {
+                if (el.dataset.healthy === '1') {
+                    catchScore += 10;
+                } else {
+                    catchScore = Math.max(0, catchScore - 5);
+                }
+                document.getElementById('catch-score').innerText = catchScore;
+                clearInterval(fall);
+                el.remove();
+            };
+        }
+
+        function stopCatch() {
+            if (catchInterval) { clearInterval(catchInterval); catchInterval = null; }
+            if (catchSpawn) { clearInterval(catchSpawn); catchSpawn = null; }
+            const arena = document.getElementById('catch-arena');
+            if (arena) arena.innerHTML = '';
+        }
+
+        function endCatch() {
+            stopCatch();
+            document.getElementById('catch-start').style.display = 'inline-block';
+            document.getElementById('catch-start').innerText = 'Play Again';
+            document.getElementById('catch-result').innerHTML = awardStars(catchScore, 'Healthy Catcher');
+        }
+
+        // ── QUIZ GAME ──
+        const QUIZ_FOODS = [
+            { food: '🥗 Salad',    healthy: true  },
+            { food: '🍔 Burger',   healthy: false },
+            { food: '🍎 Apple',    healthy: true  },
+            { food: '🍟 Fries',    healthy: false },
+            { food: '🥦 Broccoli', healthy: true  },
+            { food: '🍩 Donut',    healthy: false },
+            { food: '🥑 Avocado',  healthy: true  },
+            { food: '🍕 Pizza',    healthy: false },
+            { food: '🍓 Berries',  healthy: true  },
+            { food: '🥤 Soda',     healthy: false },
+            { food: '🥕 Carrot',   healthy: true  },
+            { food: '🍫 Candy',    healthy: false },
+            { food: '🥒 Cucumber', healthy: true  },
+            { food: '🌭 Hot Dog',  healthy: false }
+        ];
+        let quizScore = 0, quizRound = 0, quizCurrent = null;
+
+        function startQuiz() {
+            quizScore = 0; quizRound = 0;
+            document.getElementById('quiz-score').innerText = quizScore;
+            document.getElementById('quiz-result').innerHTML = '';
+            nextQuiz();
+        }
+
+        function nextQuiz() {
+            if (quizRound >= 10) {
+                document.getElementById('quiz-area').innerHTML = '<button class="play-btn" onclick="startQuiz()">Play Again</button>';
+                document.getElementById('quiz-result').innerHTML = awardStars(quizScore, 'Calorie Quiz');
+                return;
+            }
+            quizRound++;
+            document.getElementById('quiz-round').innerText = quizRound + '/10';
+            quizCurrent = QUIZ_FOODS[Math.floor(Math.random() * QUIZ_FOODS.length)];
+            document.getElementById('quiz-area').innerHTML =
+                '<div class="quiz-question">Is this healthy or junk?</div>' +
+                '<div class="quiz-food">' + quizCurrent.food + '</div>' +
+                '<div class="quiz-buttons">' +
+                  '<button class="quiz-btn" onclick="answerQuiz(true)">Healthy</button>' +
+                  '<button class="quiz-btn" onclick="answerQuiz(false)">Junk</button>' +
+                '</div>';
+        }
+
+        function answerQuiz(guessHealthy) {
+            if (guessHealthy === quizCurrent.healthy) {
+                quizScore += 20;
+                document.getElementById('quiz-score').innerText = quizScore;
+            }
+            nextQuiz();
+        }
+
+        // ── REACTION GAME ──
+        let reactionScore = 0, reactionTime = 20, reactionInterval = null;
+
+        function startReaction() {
+            reactionScore = 0; reactionTime = 20;
+            document.getElementById('reaction-score').innerText = reactionScore;
+            document.getElementById('reaction-time').innerText = reactionTime;
+            document.getElementById('reaction-result').innerHTML = '';
+            spawnReaction();
+            reactionInterval = setInterval(() => {
+                reactionTime--;
+                document.getElementById('reaction-time').innerText = reactionTime;
+                if (reactionTime <= 0) endReaction();
+            }, 1000);
+        }
+
+        function spawnReaction() {
+            const area = document.getElementById('reaction-area');
+            if (!area) return;
+            const icons = ['💪','🏃','🏋️','🤸','🚴','⚡'];
+            const icon = icons[Math.floor(Math.random() * icons.length)];
+            area.innerHTML = '<div class="reaction-target" onclick="hitReaction()">' + icon + '</div>';
+            const target = area.querySelector('.reaction-target');
+            target.style.marginLeft = (Math.random() * 60) + '%';
+            target.style.marginTop = (Math.random() * 50) + 'px';
+        }
+
+        function hitReaction() {
+            reactionScore += 10;
+            document.getElementById('reaction-score').innerText = reactionScore;
+            spawnReaction();
+        }
+
+        function stopReaction() {
+            if (reactionInterval) { clearInterval(reactionInterval); reactionInterval = null; }
+        }
+
+        function endReaction() {
+            stopReaction();
+            document.getElementById('reaction-area').innerHTML = '<button class="play-btn" onclick="startReaction()">Play Again</button>';
+            document.getElementById('reaction-result').innerHTML = awardStars(reactionScore, 'Workout Reaction');
         }
     </script>
 </body>

@@ -1,53 +1,103 @@
 <html>
-    <head>
-        <title>Hobbies Form</title>
-        <link rel="stylesheet" href="hobbies-form.css">
-
+<head>
+    <title>Hobby Form</title>
     <style>
         body {
-            font-family: sans-serif;
-            background-color: aqua;
+            background-color: #0f172a;
+            color: #f8fafc;
+            font-family: 'Inter', system-ui, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
         }
-        form {
-            width: 500px;
-            margin: 0 auto;
+
+        .card {
+            background-color: #1e293b;
+            padding: 2rem;
+            border-radius: 12px;
+            width: 400px;
+            border: 1px solid #334155;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
         }
-        input[type="text"]
-        input[type="email"]
-        input[type="checkbox"] {
-            width: 100%;
-            margin-bottom: 10px;
-        }
-        input[type="submit"] {
-            background-color: #000;
-            color: #fff;
-            border: none;
-            padding: 10px;
-        }
+
         h1 {
-            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #38bdf8;
         }
+
+        input[type="text"], input[type="email"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 1rem;
+            background: #0f172a;
+            border: 1px solid #475569;
+            border-radius: 6px;
+            color: white;
+            box-sizing: border-box;
+        }
+
+        .hobbies-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 1rem 0;
+            text-align: left;
+        }
+
+        label {
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 8px;
+            accent-color: #38bdf8;
+        }
+
         input[type="submit"] {
-            text-align: bottom;
+            width: 100%;
+            padding: 12px;
+            margin-top: 1.5rem;
+            background-color: #38bdf8;
+            color: #0f172a;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #7dd3fc;
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
         }
     </style>
-    </head>
-    <body>
+</head>
+<body>
+
+    <div class="card">
         <h1>Hobbies Form</h1>
         <form>
-            <input type="text" name="name" placeholder="your name">
-            <input type="email" name="email" placeholder="your email">
-            <label for="hobbies">Hobbies:</label>
-            <input type="checkbox" name="hobbies[]" value="reading">
-        Reading
-            <input type="checkbox" name="hobbies[]" value="music"> Music 
-            <input type="checkbox" name="hobbies[]" value="sports">
-        Sports
-            <input type="checkbox" name="hobbies[]" value="travle">
-        Travle
-            <input type="checkbox" name="hobbies[]" value="other"> Other
-        (please specify)
-            <input type="submit" value="submit"> 
+            <input type="text" name="name" placeholder="Name">
+            <input type="email" name="email" placeholder="Email Address">
+            
+            <p style="font-size: 0.8rem; color: #94a3b8; text-align: left;">Select Hobbie:</p>
+            <div class="hobbies-grid">
+                <label><input type="checkbox" name="hobbies[]" value="reading"> Reading</label>
+                <label><input type="checkbox" name="hobbies[]" value="music"> Music</label>
+                <label><input type="checkbox" name="hobbies[]" value="sports"> Sports</label>
+                <label><input type="checkbox" name="hobbies[]" value="travel"> Travel</label>
+                <label><input type="checkbox" name="hobbies[]" value="other"> Other</label>
+            </div>
+
+            <input type="submit" value="Finish"> 
         </form>
-    </body>
+    </div>
+
+</body>
 </html>
