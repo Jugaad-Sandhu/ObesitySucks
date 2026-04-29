@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>Hobbies Form</title>
+        <link rel="stylesheet" href="hobbies-form.css">
+
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: aqua;
+        }
+        form {
+            width: 500px;
+            margin: 0 auto;
+        }
+        input[type="text"]
+        input[type="email"]
+        input[type="checkbox"] {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        input[type="submit"] {
+            background-color: #000;
+            color: #fff;
+            border: none;
+            padding: 10px;
+        }
+        h1 {
+            text-align: center;
+        }
+        input[type="submit"] {
+            text-align: bottom;
+        }
+    </style>
+    </head>
+    <body>
+        <h1>Hobbies Form</h1>
+        <form>
+            <input type="text" name="name" placeholder="your name">
+            <input type="email" name="email" placeholder="your email">
+            <label for="hobbies">Hobbies:</label>
+            <input type="checkbox" name="hobbies[]" value="reading">
+        Reading
+            <input type="checkbox" name="hobbies[]" value="music"> Music 
+            <input type="checkbox" name="hobbies[]" value="sports">
+        Sports
+            <input type="checkbox" name="hobbies[]" value="travle">
+        Travle
+            <input type="checkbox" name="hobbies[]" value="other"> Other
+        (please specify)
+            <input type="submit" value="submit"> 
+        </form>
+    </body>
+</html>
