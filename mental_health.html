@@ -1,5 +1,47 @@
 <html>
     <head>
+        <style>
+            * { margin: 0; padding: 0; box-sizing: border-box; }
+            body {
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap:28px;
+                background: #0a0e1a;
+                color: white;
+                font-family: serif;
+            }
+            h1 { letter-spacing: .35em; font-size: 1.1rem; font-weight: 300; opacity: .6;}
+            .circle {
+                width: 150px; height: 150px;
+                border-radius: 50%;
+                background: radial-gradient(circle at 40% 35%, #6eb5ff, #1a3a80);
+                box-shadow: 0 0 70px #3a8aff44;
+                animation: breathe 8s ease-in-out infinite;
+                display: flex; align-items: center; justify-content: center;
+                font-size: .7rem; letter-spacing: .2rem; opacity: .9;
+            }
+            @keyframes breathe {
+                0%,100% { transform: scale(1); }
+                40%,60% { transform: scale(1.45); }
+            }
+
+            p { opacity: .35; font-size: .78rem; letter-spacing: .1em; }
+
+            .btns { display: flex; gap: 10px; }
+            button {
+                background: rgba(255,255,255,.07);
+                border: 1px solid rgba(255,255,255,.15);
+                color: white; padding: 8px 18px;
+                border-radius: 50px; cursor: pointer;
+                font-size: .82rem; letter-spacing: .08em;
+                transition: background .2s;
+            }
+            button:hover { background: rgba(255,255,255,.18); }
+            input[type=range] { accent-color: #6eb5ff; width: 100px; cursor: pointer; }
+        </style> 
     </head>
     <body>
         <h1>FOCUS ON BREATHING</h1>
@@ -9,12 +51,12 @@
         src="https://cdn.pixabay.com/audio/2022/05/27/audio_1808fbf07a.mp3">
             </audio>
             <div class="btns">
-            <button onclick="a.src='https://cdn.pixabay.com/audio/2022/05/27/audio_1808fbf07a.mp3';a.play()">🌧️ Rain</button>
-            <button onclick="a.src='https://cdn.pixabay.com/audio/2022/03/15/audio_8cb3a32f03.mp3';a.play()">🌊 Beach</button>
-            <button onclick="a.src='https://cdn.pixabay.com/audio/2021/10/19/audio_5c5218e469.mp3';a.play()">🌿 Nature</button>
+            <button onclick="a.src='https://8045fa1d-bcd7-4729-96a1-41ce84b195c3-00-27b849t3781c0.riker.replit.dev/sounds/rain.mp3';a.play()">🌧️ Rain</button>
+            <button onclick="a.src='https://8045fa1d-bcd7-4729-96a1-41ce84b195c3-00-27b849t3781c0.riker.replit.dev/sounds/beach.mp3';a.play()">🌊 Beach</button>
+            <button onclick="a.src='https://8045fa1d-bcd7-4729-96a1-41ce84b195c3-00-27b849t3781c0.riker.replit.dev/sounds/nature.mp3';a.play()">🌿 Nature</button>
         </div>
         <div style="display:flex;gap:12px;align-items:center">
-            <button onclick="a.paused ? a.play() : a.pause">⏯️</button>
+            <button onclick="a.paused ? a.play() : a.pause()">⏯️</button>
             <input type="range" min="0" max="100" value="100"
             oninput="a.volume = this.value / 100">
         </div>
